@@ -21,4 +21,17 @@ def count_frequency(word_list)
   counts
 end
 
-p count_frequency(word_list)
+# second part
+
+row_text = %{Me chama muito a atenção de que esse vídeo conseguiu atingir agora 78 milhões de pessoas em pouco mais de 12 horas e o entendimento do governo é que isso de deve à ação das big techs, que estariam manipulando os algoritmos, e que não se deve à gravidade do episódio combinado com a  do outro cara que vai fazer o que eu estou escrevendo ou a mesma e onde do.}
+
+word_list = words_from_string(row_text)
+counts = count_frequency(word_list)
+sorted = counts.sort_by {|word,count| count } 
+top_five = sorted.last(5)
+  
+for i in 0...5
+  word = top_five[i][0]
+  count = top_five[i][1]
+  puts "#{word}: #{count}"
+end
