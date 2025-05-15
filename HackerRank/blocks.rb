@@ -1,9 +1,13 @@
 def factorial(n)
+  return 1 if n <= 1
+
   yield(n)
 end
 
 n = gets.to_i
 
 factorial(n) do |n|
-  puts n.(n-1)
-end 
+  result = 1
+  (1..n).each { |i| result *= i }
+  puts result
+end
